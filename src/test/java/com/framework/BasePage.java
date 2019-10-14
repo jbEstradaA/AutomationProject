@@ -50,8 +50,7 @@ public abstract class BasePage {
      * @param locator
      * @return
      */
-    public Boolean verifyIfElementIsDisplayed(By locator){
+    public Boolean verifyIfElementIsDisplayed(By locator) {
         return driver.findElement(locator).isDisplayed();
     }
-
 }

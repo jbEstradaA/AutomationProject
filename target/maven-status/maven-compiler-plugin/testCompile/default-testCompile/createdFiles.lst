@@ -1,0 +1,7 @@
+com\automationPractice\pages\ContactUsPage.class
+com\automationPractice\pages\MainPage.class
+com\framework\BasePage.class
+com\automationPractice\steps\CustomerServiceSteps.class
+com\automationPractice\AppTestRun.class
+com\framework\ParentScenario.class
+com\framework\ParentPage.class

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="automationproject" duration-ms="11239" started-at="2019-10-09T02:33:22Z" finished-at="2019-10-09T02:33:33Z">
+    <groups>
+      <group name="cucumber">
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:com.automationPractice.AppTestRun@54a097cc]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+      </group> <!-- cucumber -->
+    </groups>
+    <test name="TestingNumber1" duration-ms="11239" started-at="2019-10-09T02:33:22Z" finished-at="2019-10-09T02:33:33Z">
+      <class name="com.automationPractice.AppTestRun">
+        <test-method status="PASS" signature="setUpClass()[pri:0, instance:com.automationPractice.AppTestRun@54a097cc]" name="setUpClass" is-config="true" duration-ms="150" started-at="2019-10-09T02:33:22Z" finished-at="2019-10-09T02:33:22Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpClass -->
+        <test-method status="PASS" signature="startBrowser(java.lang.String)[pri:0, instance:com.automationPractice.AppTestRun@54a097cc]" name="startBrowser" is-config="true" duration-ms="5986" started-at="2019-10-09T02:33:22Z" finished-at="2019-10-09T02:33:28Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startBrowser -->
+        <test-method status="PASS" signature="runScenario(io.cucumber.testng.PickleEventWrapper, io.cucumber.testng.CucumberFeatureWrapper)[pri:0, instance:com.automationPractice.AppTestRun@54a097cc]" name="runScenario" duration-ms="4364" started-at="2019-10-09T02:33:28Z" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2019-10-09T02:33:32Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Verify that the CUSTOMER SERVICE form be displayed successfully"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Contact Us"]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method status="PASS" signature="closeDriver()[pri:0, instance:com.automationPractice.AppTestRun@54a097cc]" name="closeDriver" is-config="true" duration-ms="620" started-at="2019-10-09T02:33:32Z" finished-at="2019-10-09T02:33:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeDriver -->
+        <test-method status="PASS" signature="tearDownClass()[pri:0, instance:com.automationPractice.AppTestRun@54a097cc]" name="tearDownClass" is-config="true" duration-ms="81" started-at="2019-10-09T02:33:33Z" finished-at="2019-10-09T02:33:33Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDownClass -->
+      </class> <!-- com.automationPractice.AppTestRun -->
+    </test> <!-- TestingNumber1 -->
+  </suite> <!-- automationproject -->
+</testng-results>

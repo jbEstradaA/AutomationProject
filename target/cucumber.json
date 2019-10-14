@@ -1,0 +1,202 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2019-10-14T03:47:00.181Z",
+        "line": 3,
+        "name": "Verify that the CUSTOMER SERVICE form be displayed successfully",
+        "description": "",
+        "id": "contact-us;verify-that-the-customer-service-form-be-displayed-successfully",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 8475945000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "the user be in the automation practice principal web page",
+            "match": {
+              "location": "CustomerServiceSteps.theUserBeInTheAutomationPracticePrincipalWebPage()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 655047200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "do click in the contact us button",
+            "match": {
+              "location": "CustomerServiceSteps.doClickInTheContactUsButton()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 334943500,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "the CUSTOMER SERVICE form must be displayed",
+            "match": {
+              "location": "CustomerServiceSteps.theCUSTOMERSERVICEFromMustBeDisplayed()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-10-14T03:47:09.650Z",
+        "line": 8,
+        "name": "Verify that a description message is displayed when the user select the subject type CUSTOMER SERVICE",
+        "description": "",
+        "id": "contact-us;verify-that-a-description-message-is-displayed-when-the-user-select-the-subject-type-customer-service",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 50469300,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "The user is in the CONTACT US section",
+            "match": {
+              "location": "CustomerServiceSteps.theUserIsInTheCONTACTUSSection()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 123172000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "The user click on subject select control",
+            "match": {
+              "location": "CustomerServiceSteps.theUserClickOnSubjectSelectControl()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 155495600,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "The user select the subject type \"Customer service\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Customer service\"",
+                  "offset": 33
+                }
+              ],
+              "location": "CustomerServiceSteps.theUserSelectTheSubjectType(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 64795300,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "The description message \"For any question about a product, an order\" must be displayed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"For any question about a product, an order\"",
+                  "offset": 24
+                }
+              ],
+              "location": "CustomerServiceSteps.theDescriptionMessageMustBeDisplayed(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2019-10-14T03:47:10.045Z",
+        "line": 14,
+        "name": "Verify that a description message is displayed when the user select the subject type WEBMASTER",
+        "description": "",
+        "id": "contact-us;verify-that-a-description-message-is-displayed-when-the-user-select-the-subject-type-webmaster",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 37920800,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "The user is in the CONTACT US section",
+            "match": {
+              "location": "CustomerServiceSteps.theUserIsInTheCONTACTUSSection()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 63625800,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "The user click on subject select control",
+            "match": {
+              "location": "CustomerServiceSteps.theUserClickOnSubjectSelectControl()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 78445800,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "The user select the subject type \"Webmaster\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Webmaster\"",
+                  "offset": 33
+                }
+              ],
+              "location": "CustomerServiceSteps.theUserSelectTheSubjectType(String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 55315600,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "The description message \"If a technical problem occurs on this website\" must be displayed",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"If a technical problem occurs on this website\"",
+                  "offset": 24
+                }
+              ],
+              "location": "CustomerServiceSteps.theDescriptionMessageMustBeDisplayed(String)"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Contact Us",
+    "description": "",
+    "id": "contact-us",
+    "keyword": "Feature",
+    "uri": "file:src/test/resources/features/automationPractice/ContactUs.feature",
+    "tags": []
+  }
+]
