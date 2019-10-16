@@ -24,6 +24,27 @@ public class CustomerServiceSteps extends AppTestRun {
         Assert.assertTrue(contactUsPage.verifyThatPrincipalFormIsDisplayed(),"The principal form has not been displayed correctly");
     }
 
+    @Given("The user is in the CONTACT US section")
+    public void theUserIsInTheCONTACTUSSection() {
+        theUserBeInTheAutomationPracticePrincipalWebPage();
+        doClickInTheContactUsButton();
+    }
+
+    @When("The user click on subject heading control")
+    public void theUserClickOnSubjectHeadingControl() {
+        contactUsPage.doClickOnSubjectSelectControl();
+    }
+
+    @And("The user select the subject type {string}")
+    public void theUserSelectTheSubjectType(String Subject) {
+        contactUsPage.selectSubjectType(Subject);
+    }
+
+    @Then("Verify that description message {string} must be displayed")
+    public void verifyThatDescriptionMessageMustBeDisplayed(String textToBeShowed) {
+        Assert.assertEquals(contactUsPage.getSubjectDescription(), textToBeShowed, "The description message of Subject "+ textToBeShowed + " has not been displayed correctly");
+    }
+
     @When("enter the text {string} in the search text box")
     public void enterTheTextInTheSearchTextBox(String searchText) {
         mainPage.sendSearch(searchText);
