@@ -2,6 +2,7 @@ package com.framework;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
 
 public abstract class BasePage {
     private WebDriver driver;
@@ -54,4 +55,13 @@ public abstract class BasePage {
         return driver.findElement(locator).isDisplayed();
     }
 
+    /**
+     * This method allow select a item of a DropDownWebElement
+     * @param locator
+     * @param text
+     */
+    public void selectItemOfDrpElement(By locator, String text) {
+        Select drpElement = new Select(driver.findElement(locator));
+        drpElement.selectByVisibleText(text);
+    }
 }
