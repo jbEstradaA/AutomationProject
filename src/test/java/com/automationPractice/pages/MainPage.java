@@ -13,6 +13,10 @@ public class MainPage extends ParentPage {
     By Module_Editorial = By.id("editorial_block_center");
     By Tittle_MainPage = By.xpath("//div[@id='editorial_block_center']//h1");
     By BTN_ContactUs = By.id("contact-link");
+    By txt_search = By.id("search_query_top");
+    By btn_search=By.xpath("//button[@name='submit_search']");
+    By Form_principal = By.id("center_column");
+    By txt_result= By.xpath("//span[@class='lighter']");
 
     /**
      * This Method return the principal tittle of the Main Page
@@ -29,5 +33,29 @@ public class MainPage extends ParentPage {
     public void clickOnContactButton(){
         clickOnElement(BTN_ContactUs);
     }
+    public void sendSearch(String message){
+        sendKeysToElement(txt_search,message);
+    }
 
+    /**
+     * This Method do click into the search button in the Main Page
+     */
+    public void clickOnSearch(){
+        clickOnElement(btn_search);
+    }
+
+    /**
+     * This Method verify if the principal form is displayed
+     */
+    public Boolean verifyThatPrincipalFormIsDisplayed(){
+        return verifyIfElementIsDisplayed(Form_principal);
+    }
+
+    /**
+     * This Method get the search text
+     */
+    public String getSearch(){
+        return getTextFromElement(txt_result);
+    }
 }
+
