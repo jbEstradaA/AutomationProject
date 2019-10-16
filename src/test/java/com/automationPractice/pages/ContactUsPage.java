@@ -11,7 +11,7 @@ public class ContactUsPage extends ParentPage {
 
     By Form_principal = By.id("center_column");
     By Tittle_ContactUsForm = By.xpath("//div[@id='center_column']//h1");
-    By Select_subject = By.xpath("//select[@id='id_contact']");
+    By Select_subject = By.name("id_contact");
     By Span_subject = By.xpath("//div[@id='uniform-id_contact']/span");
     By Desc_subject2 = By.id("desc_contact2");
     By Desc_subject1 = By.id("desc_contact1");
