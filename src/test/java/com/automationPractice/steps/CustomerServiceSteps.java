@@ -41,7 +41,7 @@ public class CustomerServiceSteps extends AppTestRun {
     }
 
     @Then("Verify that description message {string} must be displayed")
-    public void verifyThatDescriptionMessageMustBeDisplayed(String Subject_desc_text) {
-        Assert.assertEquals(contactUsPage.getSubjectDescription(), Subject_desc_text, "The description message of Subject "+ Subject_desc_text + " has not been displayed correctly");
+    public void verifyThatDescriptionMessageMustBeDisplayed(String textToBeShowed) {
+        Assert.assertEquals(contactUsPage.getSubjectDescription(), textToBeShowed, "The description message of Subject "+ textToBeShowed + " has not been displayed correctly");
     }
 }
