@@ -14,9 +14,9 @@ public class MainPage extends ParentPage {
     By Tittle_MainPage = By.xpath("//div[@id='editorial_block_center']//h1");
     By BTN_ContactUs = By.id("contact-link");
     By txt_search = By.id("search_query_top");
-    By btn_search=By.xpath("//button[@name='submit_search']");
+    By btn_search=By.name("submit_search");
     By Form_principal = By.id("center_column");
-    By txt_result= By.xpath("//span[@class='lighter']");
+    By txt_result= By.className("lighter");
 
     /**
      * This Method return the principal tittle of the Main Page
@@ -33,6 +33,10 @@ public class MainPage extends ParentPage {
     public void clickOnContactButton(){
         clickOnElement(BTN_ContactUs);
     }
+
+    /**
+     * This Method send a word to the box search
+     */
     public void sendSearch(String message){
         sendKeysToElement(txt_search,message);
     }
