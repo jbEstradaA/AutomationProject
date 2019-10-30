@@ -44,4 +44,19 @@ public class CustomerServiceSteps extends AppTestRun {
     public void verifyThatDescriptionMessageMustBeDisplayed(String textToBeShowed) {
         Assert.assertEquals(contactUsPage.getSubjectDescription(), textToBeShowed, "The description message of Subject "+ textToBeShowed + " has not been displayed correctly");
     }
+
+    @When("enter the text {string} in the search text box")
+    public void enterTheTextInTheSearchTextBox(String searchText) {
+        mainPage.sendSearch(searchText);
+    }
+
+    @And("click in the search button")
+    public void clickInTheSearchButton() {
+        mainPage.clickOnSearch();
+    }
+
+    @Then("verify that the search word {string} is displayed in the results")
+    public void verifyThatTheSearchWordIsDisplayedInTheResults(String searchText) {
+        Assert.assertTrue(mainPage.getSearch().contains(searchText.toUpperCase()),"The search was "+searchText);
+    }
 }
