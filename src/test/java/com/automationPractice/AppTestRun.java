@@ -5,8 +5,6 @@ import com.automationPractice.pages.MainPage;
 import com.framework.ParentScenario;
 import io.cucumber.testng.CucumberOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Parameters;
 
 @CucumberOptions(
         plugin = {"pretty",
