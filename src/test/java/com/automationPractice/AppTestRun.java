@@ -13,7 +13,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
                 "html:target/home-page-html"},
         features = {"src/test/resources/features/automationPractice"},
         glue = {"com.automationPractice.steps"},
-        tags = "")
+        tags = "@tag")
 
 public class AppTestRun extends ParentScenario {
     //Initialize pages

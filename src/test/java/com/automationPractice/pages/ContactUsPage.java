@@ -15,6 +15,8 @@ public class ContactUsPage extends ParentPage {
     By Span_subject = By.xpath("//div[@id='uniform-id_contact']/span");
     By Desc_subject2 = By.id("desc_contact2");
     By Desc_subject1 = By.id("desc_contact1");
+    By TBX_Email = By.id("email");
+    By FORM_Email = By.xpath("//input[@id='email']/..");
 
     /**
      * This method is to verify if the principal form is Displayed
@@ -53,5 +55,17 @@ public class ContactUsPage extends ParentPage {
                 break;
         }
         return TextValue;
+    }
+
+    public void enterEmail(String email){
+        sendKeysToElement(TBX_Email, email);
+    }
+
+    public void leftFieldEmailAddress(){
+        sendTabKeyToElement(TBX_Email);
+    }
+
+    public boolean verifyThatIsValidEmail(){
+        return getClassNameFromElement(FORM_Email).contains("error");
     }
 }

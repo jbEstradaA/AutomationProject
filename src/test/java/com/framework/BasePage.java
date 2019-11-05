@@ -1,6 +1,7 @@
 package com.framework;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
@@ -26,6 +27,14 @@ public abstract class BasePage {
      */
     public void sendKeysToElement(By locator, String text){
         driver.findElement(locator).sendKeys(text);
+    }
+
+    /**
+     * Method to do TAB key over an Element
+     * @param locator
+     */
+    public void sendTabKeyToElement(By locator){
+        driver.findElement(locator).sendKeys(Keys.TAB);
     }
 
     /**
@@ -63,5 +72,14 @@ public abstract class BasePage {
     public void selectItemOfDrpElement(By locator, String text) {
         Select drpElement = new Select(driver.findElement(locator));
         drpElement.selectByVisibleText(text);
+    }
+
+    /**
+     * This method return the class property name value from element
+     * @param locator
+     * @return
+     */
+    public String getClassNameFromElement(By locator){
+        return driver.findElement(locator).getAttribute("class");
     }
 }
