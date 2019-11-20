@@ -10,7 +10,7 @@ Feature: BuyCart
     And the user check out the buy cart summary
     Then verify that the following products should be displayed into Shopping cart
     |Products|
-    |Printed Summer Dress|
+    |Printed Summer Dress1|
     |Printed Chiffon Dress|
     Examples:
     |     firstProduct              |     secondProduct     |

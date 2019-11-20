@@ -11,7 +11,7 @@ import org.testng.Assert;
 public class CustomerServiceSteps extends AppTestRun {
     @Given("the user be in the automation practice principal web page")
     public void theUserBeInTheAutomationPracticePrincipalWebPage() {
-        startChrome();
+        //startChrome();
         navigateTo("http://automationpractice.com/index.php");
     }
 
@@ -87,12 +87,12 @@ public class CustomerServiceSteps extends AppTestRun {
     }
 
     @And("choose the view to list mode")
-    public void chooseTheViewToListMode() throws Throwable {
+    public void chooseTheViewToListMode() {
         catalogPage.changeViewToListMode();
     }
 
     @And("add the products with \"Reduced price!\" offer to the buy cart")
-    public void addTheProductsWithOfferToTheBuyCart() throws Throwable{
+    public void addTheProductsWithOfferToTheBuyCart() {
         catalogPage.addProductsWithReducedPriceToTheShoppingCart();
     }
 
@@ -103,8 +103,8 @@ public class CustomerServiceSteps extends AppTestRun {
     }
 
     @Then("verify that the following products should be displayed into Shopping cart")
-    public void verifyThatTheFollowingProductsShouldBeDisplayedIntoShoppingCart(DataTable dt) {
-        shoppingCartPage.verifyThatMyProductsMatchWithShoppingCartSummary(dt, 0);
+    public void verifyThatTheFollowingProductsShouldBeDisplayedIntoShoppingCart(DataTable listOfProducts) {
+        Assert.assertTrue(shoppingCartPage.verifyThatMyProductsMatchWithShoppingCartSummary(listOfProducts));
         System.out.println("\nThe wished products List match with the products in the shopping cart");
     }
 }

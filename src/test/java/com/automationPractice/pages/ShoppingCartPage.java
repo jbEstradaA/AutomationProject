@@ -4,12 +4,8 @@ import com.framework.ParentPage;
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class ShoppingCartPage extends ParentPage {
 
@@ -20,22 +16,21 @@ public class ShoppingCartPage extends ParentPage {
     By productsInShopCart = By.xpath("//p[@class='product-name']/ancestor::tr");
     By TEXT_link  = By.className("product-name");
 
-    public void verifyThatMyProductsMatchWithShoppingCartSummary(DataTable dt, int dtHeader) {
-        List<WebElement> shopCartElementList = createAListOfWebElements(productsInShopCart);
-        List<String> wantedProductsList = new ArrayList<String>();
-        List<String> AddedProductsList = new ArrayList<String>();
-
-        System.out.println("\nList of products wished by the user:");
-        fillArrayListWithADataTableColumn(dt, dtHeader, wantedProductsList);
-
-        System.out.println("\nProducts added to Shopping Cart:");
-        for (int i = 0; i < getSizeOfAWebElementList(shopCartElementList); i++){
-            AddedProductsList.add(getTextOfElementFromAListOfWebElements(shopCartElementList,i,TEXT_link).toLowerCase());
-            System.out.println(AddedProductsList.get(i));
+    public boolean verifyThatMyProductsMatchWithShoppingCartSummary(DataTable listOfProducts) {
+        List<String> productList = createListWithElementsTextValue(productsInShopCart);
+        AtomicBoolean productsMatches = new AtomicBoolean(false);
+        for (int i = 1; i < listOfProducts.asList().size(); i++ ){
+            for (int f = 0; f < productList.size(); f++ ) {
+                if (productList.get(f).contains(listOfProducts.asList().get(i))) {
+                    productsMatches.set(true);
+                    break;
+                } else
+                    productsMatches.set(false);
+            }
+            if (!productsMatches.get())
+                break;
         }
-        Collections.sort(wantedProductsList);
-        Collections.sort(AddedProductsList);
-
-        Assert.assertEquals(AddedProductsList, wantedProductsList);
+        return productsMatches.get();
     }
+
 }

@@ -17,7 +17,6 @@ Feature: Contact Us
     And the user select the subject type "Webmaster"
     Then verify that description message "If a technical problem occurs on this website" must be displayed
 
-  @tag
   Scenario Outline: Verify that the Email address field only allow an valid email account
     Given the user be in the automation practice principal web page
     When do click in the contact us button

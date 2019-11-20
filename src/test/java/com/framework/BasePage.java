@@ -1,16 +1,13 @@
 package com.framework;
 
-import com.sun.prism.shader.AlphaOne_Color_AlphaTest_Loader;
-import cucumber.runtime.java.Function;
+
 import io.cucumber.datatable.DataTable;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
 
-import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public abstract class BasePage {
@@ -104,9 +101,19 @@ public abstract class BasePage {
      * @param locator
      * @return
      */
+    public List<String> createListWithElementsTextValue(By locator) {
+        List<WebElement> elementListOfProduct =  driver.findElements(locator);
+        List<String> nameOfProducts =  new ArrayList<>();
+        for (int i = 0; i < elementListOfProduct.size();  i++){
+            nameOfProducts.add(elementListOfProduct.get(i).getText());
+        }
+        return nameOfProducts;
+    }
+
     public List<WebElement> createAListOfWebElements(By locator) {
         return driver.findElements(locator);
     }
+
 
     /**
      * This method returns the size of a web element list
@@ -137,6 +144,47 @@ public abstract class BasePage {
         return  elements.get(index).findElement(elementLocator).getText();
     }
 
+
+    /**
+     *
+     * @param locator
+     */
+    public void handlingWaitForElementToBeClickable(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+    /**
+     *
+     * @param locator
+     */
+    public void handlingWaitForElementContainsSelectedAttribute(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.attributeContains(locator, "class", "selected"));
+    }
+
+    /**
+     *
+     * @param locator
+     */
+    public void handlingWaitForElementToBeVisible(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+
+    /**
+     *
+     * @param locator
+     */
+    public void handlingWaitForElementToNotBeInvisible(By locator) {
+        WebDriverWait wait = new WebDriverWait(driver, 20);
+        wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+    }
+
+
+
+
+
     /** -------FAIL 01
      * This method stops the script for "N" seconds or until a visibility web element appears
      * @param locator
@@ -157,15 +205,7 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
     }
 
-    /** -------FAIL 03
-     * This method stops the script for "N" seconds or until a web element to be clickable
-     * @param locator
-     * @param seconds
-     */
-    public void waitNSecondsToAnElementToBeClickable(By locator, int seconds) {
-        WebDriverWait wait = new WebDriverWait(driver, seconds);
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
+
 
     /** -------FAIL 04
      * This method is a fail T_T
@@ -239,6 +279,12 @@ public abstract class BasePage {
             arrayList.add(list.get(i).get(dataTableHeader).toLowerCase());
             System.out.println(arrayList.get(i-1));
         }
-
     }
+
+
+
+
+
+
+
 }

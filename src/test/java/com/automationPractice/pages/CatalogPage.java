@@ -13,26 +13,25 @@ public class CatalogPage extends ParentPage {
     }
 
     By productsInOffer = By.xpath("//span[@class='discount']/ancestor::div[@class='product-container']");
-    By BTN_listView = By.xpath("//a[@title='List']");
+    By BTN_listView = By.id("list");
+    By BTN_gridView = By.id("grid");
     By BTN_addToCart = By.cssSelector("[title='Add to cart']");
-    By LAYERED_loader = By.id("layered_ajax_loader");
-    By BTN_continueShopping = By.xpath("//div[@class='button-container']/span");
+    By BTN_continueShopping = By.xpath("//span[@title='Continue shopping']");
+    By MODAL_ShoppingCartDisplayed = By.xpath("//div[@id='layer_cart'][contains(@style,'block')]");
+    By MODAL_ShoppingCartNoneDisplayed = By.xpath("//div[@id='layer_cart'][contains(@style,'none')]");
 
-    public void changeViewToListMode() throws Throwable {
-        Thread.sleep(1000);
+    public void changeViewToListMode() {
+        handlingWaitForElementContainsSelectedAttribute(BTN_gridView);
         clickOnElement(BTN_listView);
     }
 
-    public void addProductsWithReducedPriceToTheShoppingCart() throws Throwable{
+    public void addProductsWithReducedPriceToTheShoppingCart() {
         List<WebElement> elementList = createAListOfWebElements(productsInOffer);
         for (int i = 0; i < getSizeOfAWebElementList(elementList); i++){
             clickOnElementOfAListOfWebElements(elementList, i, BTN_addToCart);
-            //waitNSecondsToAnInvisibilityElementAppears(LAYERED_loader,2);
-            //waitNSecondsToAnElementToBeClickable(BTN_continueShopping,2);
-            //experimento(BTN_continueShopping);
-            //waitPageLoad(4);
-            Thread.sleep(2000); //ya ni idea de que más probar ¬¬
+            handlingWaitForElementToBeVisible(MODAL_ShoppingCartDisplayed);
             clickOnElement(BTN_continueShopping);
+            handlingWaitForElementToNotBeInvisible(MODAL_ShoppingCartNoneDisplayed);
         }
     }
 
