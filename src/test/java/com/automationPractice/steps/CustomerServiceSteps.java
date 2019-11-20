@@ -1,6 +1,7 @@
 package com.automationPractice.steps;
 
 import com.automationPractice.AppTestRun;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -8,9 +9,9 @@ import io.cucumber.java.en.When;
 import org.testng.Assert;
 
 public class CustomerServiceSteps extends AppTestRun {
-
     @Given("the user be in the automation practice principal web page")
     public void theUserBeInTheAutomationPracticePrincipalWebPage() {
+        startChrome();
         navigateTo("http://automationpractice.com/index.php");
     }
 
@@ -72,6 +73,38 @@ public class CustomerServiceSteps extends AppTestRun {
 
     @Then("verify that the field Email address should show a validation")
     public void verifyThatTheFieldEmailAddressShouldShowAValidation() {
-        Assert.assertTrue(contactUsPage.verifyThatIsValidEmail(), "this is a valid Email");
+        Assert.assertTrue(contactUsPage.verifyThatIsValidEmail(), "This is a valid Email");
+    }
+
+    @When("do click on women menu")
+    public void doClickOnWomenMenu() {
+        mainPage.clickOnWomenMenu();
+    }
+
+    @And("do click on dresses sub category button")
+    public void doClickOnDressesSubCategoryButton() {
+        mainPage.clickOnDressesSubCategory();
+    }
+
+    @And("choose the view to list mode")
+    public void chooseTheViewToListMode() throws Throwable {
+        catalogPage.changeViewToListMode();
+    }
+
+    @And("add the products with \"Reduced price!\" offer to the buy cart")
+    public void addTheProductsWithOfferToTheBuyCart() throws Throwable{
+        catalogPage.addProductsWithReducedPriceToTheShoppingCart();
+    }
+
+    @And("the user check out the buy cart summary")
+    public void theUserCheckOutTheBuyCartSummary() {
+        mainPage.showListOfShopCartMenu();
+        mainPage.clickOnCheckOutButtonOfShopCartMenu();
+    }
+
+    @Then("verify that the following products should be displayed into Shopping cart")
+    public void verifyThatTheFollowingProductsShouldBeDisplayedIntoShoppingCart(DataTable dt) {
+        shoppingCartPage.verifyThatMyProductsMatchWithShoppingCartSummary(dt, 0);
+        System.out.println("\nThe wished products List match with the products in the shopping cart");
     }
 }
